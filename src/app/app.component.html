@@ -1,0 +1,38 @@
+<input
+  type="text"
+  class="form-control"
+  id="name"
+  required
+  [(ngModel)]="data.name"
+/>
+
+<input
+  type="text"
+  class="form-control"
+  id="name"
+  required
+  [(ngModel)]="data.age"
+/>
+
+<p>{{ data.name }} is {{ data.age }} years old!</p>
+
+<hr />
+
+<input [(ngModel)]="name" #it="ngModel" required />
+<p>Value: {{ name }}</p>
+<p>Valid: {{ it.valid }}</p>
+<button (click)="setValue()">Set value</button>
+
+<hr />
+
+<form #it2="ngForm" (ngSubmit)="onSubmit(it2)" novalidate>
+  <input name="first" ngModel required #first="ngModel" />
+  <input name="last" ngModel required #last="ngModel" />
+  <button>Submit</button>
+</form>
+<p>First name value: {{ first.value }}</p>
+<p>First name valid: {{ first.valid }}</p>
+<p>last name value: {{ last.value }}</p>
+<p>last name valid: {{ last.valid }}</p>
+<p>Form value: {{ it.value | json }}</p>
+<p>Form valid: {{ it.valid }}</p>
