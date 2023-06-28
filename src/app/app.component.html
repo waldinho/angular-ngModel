@@ -36,3 +36,17 @@
 <p>last name valid: {{ last.valid }}</p>
 <p>Form value: {{ it.value | json }}</p>
 <p>Form valid: {{ it.valid }}</p>
+
+<div *ngIf="currentItems.length">
+  <select #currentItem (change)="setCurrentItem(currentItem.value)">
+    <option *ngFor="let item of currentItems">
+      {{ item }}
+    </option>
+  </select>
+</div>
+
+<div [ngSwitch]="currentItem">
+  <p *ngSwitchCase="'fish'">fish</p>
+  <p *ngSwitchCase="'dog'">dog</p>
+  <p *ngSwitchDefault>default</p>
+</div>

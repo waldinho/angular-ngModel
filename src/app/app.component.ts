@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AppData } from './app-data';
 import { NgForm } from '@angular/forms';
 
@@ -11,6 +11,12 @@ export class AppComponent {
   title = 'angular-ngModel';
   data = new AppData('James', 38);
   name = '';
+  currentItems = ['fish', 'dog'];
+  currentItem = 'fish';
+  setCurrentItem(value: string) {
+    this.currentItem = value;
+    console.log('currentItem: ', this.currentItem);
+  }
   setValue() {
     this.name = 'James Waller';
     this.data = new AppData(this.name, 38);
